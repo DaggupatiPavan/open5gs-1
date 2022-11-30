@@ -3,7 +3,7 @@
   "version": "2.5.6",
   "description": "Open5gs",
   "main": "index.js",
-  "repository": "https://github.com/open5gs/open5gs/webui",
+  "repository": "https://github.com/DaggupatiPavan/open5gs-1/webui",
   "author": "Open5gs Group",
   "license": "AGPL-3.0",
   "dependencies": {
