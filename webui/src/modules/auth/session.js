@@ -21,7 +21,7 @@ const authApi = (method, url, csrf, data) => {
 export default class Session {
 
   constructor({req} = {}) {
-    this.session = {}
+    this.session = {
     try {
       if (req) {
         // If running on server we can access the server side environment
@@ -95,7 +95,7 @@ export default class Session {
     })
   }
 
-  async signin('admin', 'admin') {
+  async signin( username, password) {
     return new Promise(async (resolve, reject) => {
       if (typeof window === 'undefined') {
         return reject(Error('This method should only be called on the client'))
@@ -104,7 +104,7 @@ export default class Session {
       const csrf = await Session.getCsrfToken()
 
       authApi(
-        'post', '/login', csrf, { 'admin', 'admin' }
+        'post', '/login', csrf, { username, password }
       ).then(
         async response => {
           if (response.status !== 200) {
